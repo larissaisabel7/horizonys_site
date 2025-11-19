@@ -1,5 +1,5 @@
 /* ============================================
-   1. CONFIGURAÇÕES GLOBAIS E RESET
+   CONFIGURAÇÕES GLOBAIS E RESET
    ============================================ */
 :root {
     /* Paleta de Cores */
@@ -659,188 +659,236 @@ h1, h2, h3 {
     background: rgba(255,255,255,0.3);
 }
 
-/* ===========================
-   9. RESPONSIVO / MOBILE
-   =========================== */
+/* ============================================
+    RESPONSIVIDADE
+   ============================================ */
 
-:root {
-  --container-max: 1300px;
-}
-.container { width: min(100% - 2rem, var(--container-max)); }
+@media (max-width : 500px){
 
-h1, h2, h3 { word-wrap: break-word; }
+/* GERAL */
+    .container {
+        padding: 0 10px;
+    }
 
-.hero-content h1 { font-size: clamp(1.8rem, 2.5vw + 1rem, 3rem); }
-.hero-content p  { font-size: clamp(0.95rem, 0.4vw + 0.8rem, 1rem); }
+    h1, h2, h3 {
+        text-align: center;
+        font-size: 1.5rem;
+    }
 
-.nav-toggle {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  width: 44px; height: 44px; border-radius: 8px;
-  border: 1px solid #ffffff66;
-  background: transparent;
-  cursor: pointer;
-  font-size: 1.25rem;
-  color: var(--color-text-light);
-}
+    /* HEADER */
+    .nav-content {
+        padding: 10px 0;
+    }
 
-.portfolio-card { height: auto; }
-.portfolio-image-placeholder { aspect-ratio: 16 / 9; }
-.carousel-slide { height: 450px; }
+    .nav {
+        gap: 10px;
+        margin-right: 0;
+    }
 
-.about-card { height: auto; }
+    .nav a{
+        font-size: 14px;
+        margin: 0 10px 0 0;
+    }
 
-@media (max-width: 1200px) {
-  .nav { gap: var(--spacing-md); margin-right: 0; }
-  .portfolio-card { gap: var(--spacing-md); padding: var(--spacing-md); }
-  .slide-img img { max-width: 520px; }
-  .team-grid { grid-template-columns: repeat(3, 1fr); }
-  .reviews-grid { grid-template-columns: repeat(3, 1fr); gap: var(--spacing-sm); margin-left: 0; }
-  .contact-grid { gap: var(--spacing-md); }
-}
-
-
-@media (max-width: 992px) {
-  .nav-content { justify-content: space-between; }
-  .nav { gap: var(--spacing-sm); }
-
-  .hero { min-height: 88vh; }
-  .hero-content { margin-top: 120px; padding-inline: .5rem; }
-
-  .portfolio-card {
-    flex-direction: column;
-    text-align: left;
-    border-radius: 40px;
-  }
-  .portfolio-text { padding: var(--spacing-md); }
-
-  .carousel-slide { height: 380px; }
-  .slide { padding: 28px; }
-  .slide-text h3 { font-size: 1.5rem; }
-  .slide-text p { font-size: 0.95rem; }
-  .slide-img img { max-width: 440px; }
-
-  .about-card { flex-direction: column; border-radius: 40px; }
-  .team-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-
-  .reviews-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-  .review-card { width: 100%; }
-
-  .contact-grid { flex-direction: column; }
-  .map-placeholder,
-  .contact-info-card { width: 100%; max-height: none; }
-
-  .footer-content { gap: 1rem; }
-}
-
-/* <= 768px: ativar menu mobile, empilhar quase tudo */
-@media (max-width: 768px) {
-  .section { padding: var(--spacing-lg) 0; margin-top: 60px; }
-  .logo-placeholder { width: 140px; height: 50px; }
-
-  /* NAV responsiva */
-  .nav-toggle { display: inline-flex; }
-  .nav {
-    position: fixed;
-    inset: 80px 0 auto 0; /* abaixo do header fixo */
-    display: grid;
-    gap: 1rem;
-    padding: 1rem;
-    background: linear-gradient(to right, #253660, #6274a3);
-    border-top: 1px solid #ffffff33;
-    transform: translateY(-120%);
-    transition: transform .25s ease;
-    z-index: 999;
-  }
-  .nav.is-open { transform: translateY(0); }
-  .nav-link { padding: .75rem 0; font-size: 0.95rem; }
-
-  .hero { min-height: 76vh; }
-  .hero-content { margin-top: 96px; }
-  .hero-content h1 { font-size: clamp(1.6rem, 3.8vw + 1rem, 2.2rem); }
-
-  .portfolio-content { gap: 56px; margin-top: 40px; }
-  .portfolio-content h2 {
-    font-size: clamp(1.6rem, 2.8vw + 1rem, 2rem);
-    letter-spacing: 1px;
-  }
-  .portfolio-card { border-radius: 28px; }
-  .portfolio-image-placeholder { border-radius: 24px; }
-
-  /* Carrossel atualizado */
-  #portfolio { padding: 64px 0; }
-  #portfolio h2 { margin-left: 0; text-align: center; }
-  .portfolio-slider { width: 92%; }
-  .slides { min-height: 340px; }
-  .slide {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 16px;
-    padding: 24px;
-    border-radius: 24px;
-  }
-  .slide-text { min-height: auto; }
-  .slide-navigation { margin-top: 16px; }
-  .slide-img { order: -1; } /* imagem acima no mobile */
-  .slide-img img { max-width: 100%; border-radius: 18px; }
-
-  /* About / Equipe */
-  .about-text-column p { font-size: 0.95rem; }
-  .team-grid { grid-template-columns: 1fr 1fr; }
-  .yellow-circle { width: 96px; height: 96px; }
-
-  /* Avaliações */
-  .review-card { border-radius: 28px; padding: 1.25rem; }
-
-  /* Contato */
-  .contact-content { margin-top: 0; margin-bottom: 0; }
-  .contact-info-card {
+    .logo-placeholder {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
     height: auto;
-    width: 100%;
-    border-radius: 28px;
-  }
-
-  /* Footer */
-  .footer-content {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .footer-links a { margin-right: 1rem; display: inline-block; }
-  .footer-icons { gap: 1rem; margin-top: .5rem; }
-  .footer-logo { width: 160px; }
 }
 
-/* <= 480px: microajustes para telas muito pequenas */
-@media (max-width: 480px) {
-  .section { padding: var(--spacing-md) 0; }
-  .container { padding-inline: 1rem; }
+    /* HERO */
+    .hero {
+        padding-top: 80px;
+    }
 
-  .hero-content h1 { font-size: clamp(1.4rem, 5vw + .9rem, 1.9rem); }
-  .hero-content p { font-size: 0.95rem; }
+    .hero-content {
+        margin-top: 20px;
+        padding: 0 10px;
+    }
 
-  .portfolio-text h3 { font-size: 1.25rem; }
-  .portfolio-text p  { font-size: 0.95rem; }
+    .hero-content h1 {
+        font-size: 1.6rem;
+        
+    }
 
-  .carousel-slide { height: 300px; }
-  .slides { min-height: 300px; }
+    .hero-content p {
+        font-size: 0.8rem;
+        max-width: 100%;
+   
+    }
 
-  .yellow-circle { width: 84px; height: 84px; }
-  .team-member p { font-size: 0.85rem; }
+    /* PORTFÓLIO - CARDS */
 
-  .quote-icon { font-size: 2.4rem; }
-  .review-text { font-size: 0.95rem; }
+    .portfolio-card {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        border-radius: 30px;
+        gap: 20px;
+    }
 
-  .contact-item { align-items: flex-start; }
-  .yellow-box { width: 44px; height: 44px; }
-  .contact-input { font-size: 0.95rem; padding: .65rem .9rem; }
+    .portfolio-image-placeholder {
+        width: 100%;
+        height: 180px;
+        border-radius: 20px;
+    }
 
-  .small-box img { width: 32px; height: 32px; }
+    .portfolio-text {
+        text-align: center;
+        padding: 0;
+    }
+
+    .portfolio-text h3 {
+        font-size: 1.4rem;
+    }
+
+    .portfolio-text p {
+        font-size: 0.9rem;
+    }
+
+    /* CARROSSEL */
+    .portfolio-slider {
+        width: 90%;
+    }
+
+    .slides {
+        min-height: 350px;
+    }
+
+    .slide {
+        flex-direction: column;
+        padding: 20px;
+        text-align: center;
+        border-radius: 20px;
+    }
+
+    .slide-text {
+        align-items: center;
+        min-height: auto;
+    }
+
+    .slide-img {
+        width: 100%;
+        margin-top: 20px;
+        position: relative;
+        margin-bottom: 50px;
+    }
+
+    .slide-img img {
+        max-width: 100%;
+        border-radius: 15px;
+    }
+
+    /* BOTÕES DO SLIDE */
+    .prev, .next {
+        font-size: 1rem;
+        padding: 8px;
+    }
+
+    .slide-navigation {
+        position: absolute;
+        bottom: 5px;
+    }
+
+    /* SOBRE / EQUIPE */
+    .about-card {
+        flex-direction: column;
+        width: 90%;
+        height: 90%;
+        padding: 20px;
+        border-radius: 54px;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(2, );
+        gap: 5px;
+    }
+
+    .yellow-circle {
+        width: 90px;
+        height: 90px;
+
+    }
+
+    /* AVALIAÇÕES */
+    .reviews-grid {
+        grid-template-columns: 1fr;
+        margin-left: 0;
+        gap: 20px;
+    }
+
+    .review-card {
+        width: 90%;
+        margin-left: 20px;
+        border-radius: 30px;
+    }
+
+    /* CONTATO */
+
+    .map-title{
+        font-size: 30px;
+        margin-left: 176px;
+    }
+    .contact-grid {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .MapaEnd iframe {
+        width: 90%;
+        height: 300px;
+        border-radius: 20px;
+        margin-left: 20px;
+    }
+
+.contact-info-card {
+    border-radius: 30px;
+    width: 90%;
+    height: auto;
+    margin-left: 14px;
 }
 
-
-a, button, .btn, .nav-link { min-height: 44px; }
-a:focus-visible, button:focus-visible, .nav-link:focus-visible {
-  outline: 2px dashed #a4b9ed; outline-offset: 3px;
+.contact-item {
+    display: flex;
+    align-items: center;
+    width: 300px;
 }
 
+.yellow-box {
+    width: 40px;
+    height: 40px;
+}
+
+.contact-input {
+    padding: var(--spacing-sm);
+    font-size: 13px;
+}
+
+/* RODAPÉ */
+    .footer-content {
+        flex-direction: column;
+        grid-template-columns: 1fr;
+        gap: 3px;
+        text-align: left;
+    }
+
+    .footer-links a{
+        font-size: 13px;
+    }
+
+    .footer-icon-placeholder img{
+        width: 36px;
+        height: 36px;
+        margin-top: 20px;
+        
+    }
+
+    .footer-logo{
+        width: 150px;
+        margin-top: 20px;
+    }
+        
+}
