@@ -6,5 +6,5 @@
 
 <a href="https://github.com/MaluAlmeida/horizonys_site/wiki/Documenta%C3%A7%C3%A3o-HTML">Documentação HTML</a>
 
-<a href="https://github.com/MaluAlmeida/horizonys_site/wiki/Documenta%C3%A7%C3%A3o-JAVA">Documentação HTML</a>
+<a href="https://github.com/MaluAlmeida/horizonys_site/wiki/Documenta%C3%A7%C3%A3o-JAVA">Documentação JAVASCRIPT</a>
 
